@@ -1,6 +1,6 @@
 # WSPT / Smith's Rule – wenn nicht jeder Auftrag gleich wichtig ist – Streamlit-Demo
 
-**[→ Demo live ausprobieren](#) (Deploy offen)**
+**[→ Demo live ausprobieren](https://sebastianhanisch-wspt-demo.streamlit.app/)**
 
 Viertes Stück der **Klassische-Scheduling-Theorie-Linie** der "Konzepte"-Reihe für die Website "Sebastian Hanisch
 – Operations Research und Machine Learning": $n$ Aufträge mit Bearbeitungszeit $p_j$ und Gewicht $w_j$ auf
