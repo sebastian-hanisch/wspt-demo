@@ -23,19 +23,19 @@ SPT (Wurzel: 1||ΣCⱼ, beweisbar optimal)                                      
 ```
 
 Ergebnis in Kürze: **WSPT trifft auf jeder getesteten Instanz (n = 2 bis 9) exakt das Minimum der Vollaufzählung
-– der Beweis stimmt.** Bei 20 Aufträgen mit Gewichten 1/2/4 liegt WSPT im Mittel **18.8 %** unter SPT (das die
-Gewichte ignoriert) und **86.2 %** unter einer zufälligen Reihenfolge. Die Vollaufzählung wird schnell
+– der Beweis stimmt.** Bei 20 Aufträgen mit Gewichten 1/2/4 liegt Σ wⱼCⱼ im Mittel bei SPT (das die
+Gewichte ignoriert) **18.8 %** und bei einer zufälligen Reihenfolge **86.2 %** über dem von WSPT. Die Vollaufzählung wird schnell
 unpraktikabel: bei 9 Aufträgen braucht sie über eine Sekunde, WSPT bleibt im Mikrosekundenbereich.
 **Der ehrliche Bruch (zweifach):** sobald Rüstzeiten zwischen Auftragsfamilien dazukommen (Vehikel
 Werkstatt/Logistik), setzt der Beweis nicht mehr – WSPT liegt im Mittel messbar über dem echten Optimum, und der
 Abstand wächst mit der Rüstzeit (0 % bei 0 Minuten, **30.3 %** bei 60 Minuten). Auf diesem Vehikel ist WSPT sogar
 nicht mehr GARANTIERT besser als SPT: bei einer der getesteten Instanzen (Seed 40, 20 Aufträge, 60 Minuten
-Rüstzeit) schneidet WSPT **11.4 % schlechter** ab als die simple, gewichts-blinde Regel – ein Fund, den die App
+Rüstzeit) liegt Σ wⱼCⱼ der simplen, gewichts-blinden Regel SPT **11.4 % unter** dem von WSPT – ein Fund, den die App
 ehrlich zeigt statt zu verstecken.
 
 | Frage | Ergebnis (Mittel über 5 feste Instanzen, Seeds 100000–100004, mit je 3 Ketten-Seeds) |
 |---|---|
-| Standardfall (20 Aufträge) | ✅ WSPT liegt **18.8 %** unter SPT und **86.2 %** unter einer zufälligen Reihenfolge |
+| Standardfall (20 Aufträge) | ✅ Σ wⱼCⱼ liegt bei SPT **18.8 %** und bei einer zufälligen Reihenfolge **86.2 %** über dem von WSPT |
 | **Beweis gegen Vollaufzählung** | ✅ **100 %** Trefferquote bei n = 2 bis 9 – kein einziger Fall, in dem WSPT nicht das Minimum trifft |
 | **Rechenzeit** | ➖ Vollaufzählung bei n = 9 bereits über 1000 ms, WSPT im Mikrosekundenbereich |
 | **Vehikel Werkstatt/Logistik** | ❌ Rüstzeit 0/5/15/30/60 Minuten: WSPT liegt **0/0.7/4.6/13.9/30.3 %** über dem echten Optimum – im Einzelfall kann WSPT sogar schlechter als SPT abschneiden |
@@ -83,8 +83,8 @@ selbst ist deterministisch).
 ## Was nicht funktioniert hat / Grenzen
 
 - **Vorab-Vermutung: "WSPT bleibt zumindest besser als SPT, auch wenn der Beweis nicht mehr gilt"** – **widerlegt
-  im Einzelfall**: bei hoher Rüstlast (Seed 40, n=20, Rüstzeit 60) schneidet WSPT 11.4 % schlechter ab als die
-  einfachere, gewichts-blinde Regel SPT. Über die 5 festen Sweep-Instanzen gemittelt gewinnt WSPT zwar weiterhin
+  im Einzelfall**: bei hoher Rüstlast (Seed 40, n=20, Rüstzeit 60) liegt Σ wⱼCⱼ der
+  einfacheren, gewichts-blinden Regel SPT 11.4 % unter dem von WSPT. Über die 5 festen Sweep-Instanzen gemittelt gewinnt WSPT zwar weiterhin
   meistens, aber "meistens" ist eben keine Garantie mehr, sobald der Beweis (der keine Rüstzeiten kennt) nicht
   mehr trägt – genau der Punkt der Vehikel-B-Idee dieser Linie.
 - **Ein Streamlit-Frontend/Backend-Desync gefunden und behoben:** der Rüstzeit-Regler wird nur auf dem

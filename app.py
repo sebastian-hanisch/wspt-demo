@@ -192,11 +192,11 @@ if a.optimal is not None and not a.wspt_matches_optimum:
 elif vehicle == "logistik" and (a.gap_spt < 0 or a.gap_random < 0):
     worse_than = "SPT (das die Gewichte ignoriert)" if a.gap_spt < 0 else "eine zufällige Reihenfolge"
     worst_gap = min(a.gap_spt, a.gap_random)
-    st.warning(f"⚠️ Auf diesem Werkstatt-Vehikel schneidet WSPT hier sogar SCHLECHTER ab als {worse_than}: {abs(worst_gap):.1f} % mehr. Kein Fehler - WSPT ist rüstzeit-blind und für diese Instanz zufällig ungünstig einsortiert; genau die Grenze aus 🚧 unten.")
+    st.warning(f"⚠️ Auf diesem Werkstatt-Vehikel schneidet WSPT hier sogar SCHLECHTER ab als {worse_than}: deren Σ wⱼCⱼ liegt {abs(worst_gap):.1f} % unter dem von WSPT. Kein Fehler - WSPT ist rüstzeit-blind und für diese Instanz zufällig ungünstig einsortiert; genau die Grenze aus 🚧 unten.")
 else:
     tail = " (auch mit Rüstzeiten - bei dieser Instanz trifft WSPT trotzdem das Optimum, das ist nicht garantiert)" if vehicle == "logistik" and a.optimal is not None else ""
     proof = "bei dieser Zielfunktion beweisbar die beste überhaupt" if vehicle == "neutral" else "auf diesem Vehikel nicht mehr bewiesen optimal, aber hier weiterhin besser als beide Vergleichsregeln"
-    st.success(f"✅ WSPT ist {a.gap_spt:.1f} % besser als SPT (das ignoriert die Gewichte) und {a.gap_random:.1f} % besser als eine zufällige Reihenfolge - {proof}{tail}.")
+    st.success(f"✅ Σ wⱼCⱼ liegt bei SPT (das ignoriert die Gewichte) {a.gap_spt:.1f} % und bei einer zufälligen Reihenfolge {a.gap_random:.1f} % über dem von WSPT - {proof}{tail}.")
 
 st.markdown("---")
 
