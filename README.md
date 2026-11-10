@@ -86,7 +86,7 @@ selbst ist deterministisch).
   im Einzelfall**: bei hoher Rüstlast (Seed 40, n=20, Rüstzeit 60) liegt Σ wⱼCⱼ der
   einfacheren, gewichts-blinden Regel SPT 11.4 % unter dem von WSPT. Über die 5 festen Sweep-Instanzen gemittelt gewinnt WSPT zwar weiterhin
   meistens, aber "meistens" ist eben keine Garantie mehr, sobald der Beweis (der keine Rüstzeiten kennt) nicht
-  mehr trägt – genau der Punkt der Vehikel-B-Idee dieser Linie.
+  mehr gilt – genau der Punkt der Vehikel-B-Idee dieser Linie.
 - **Ein Streamlit-Frontend/Backend-Desync gefunden und behoben:** der Rüstzeit-Regler wird nur auf dem
   Werkstatt/Logistik-Vehikel gezeichnet; ein Wert, der in einem Lauf OHNE den Regler in dessen Widget-Zustand
   gesetzt wird, erschien beim nächsten Zeichnen als Mindestwert im Regler, während die App intern weiterhin mit
